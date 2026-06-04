@@ -1,10 +1,11 @@
 class Posts::UseCases::AllPost
   def initialize(repository)
     @repository = repository
+    @list_service = Posts::Services::ListService.new(repository)
   end
 
   def call
-    posts = @repository.all
+    posts = @list_service.all
 
     posts.map { |post| to_dto(post) }
   end
