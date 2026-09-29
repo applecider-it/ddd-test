@@ -1,0 +1,39 @@
+cd ~/workspace/github/ddd-test
+
+-----------------------------------
+
+port
+
+rails: 3000
+
+-----------------------------------
+
+MVCS
+
+cd ~/workspace/github/ddd-test/mvcs
+
+rails server
+
+http://localhost:3000
+
+-----------------------------------
+
+DDD
+
+cd ~/workspace/github/ddd-test/ddd
+
+rails server -p 3001
+
+http://localhost:3001
+
+-----------------------------------
+
+セットアップ
+
+bundle install
+
+bin/rails db:create
+bin/rails db:migrate
+
+
+

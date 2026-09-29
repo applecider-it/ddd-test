@@ -1,0 +1,23 @@
+class Posts::UseCases::AllPost
+  def initialize(repository)
+    @repository = repository
+    @list_service = Posts::Services::ListService.new(repository)
+  end
+
+  def call
+    posts = @list_service.all
+
+    posts.map { |post| to_dto(post) }
+  end
+
+  # DTOに変換
+  private def to_dto(post)
+    Posts::Dto::AllPostDto.new(
+      id: post.id.value,
+      title: post.title.value,
+      content: post.content.value,
+      created_at: post.created_at.value,
+      updated_at: post.updated_at.value
+    )
+  end
+end
